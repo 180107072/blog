@@ -1,3 +1,5 @@
+"use client";
+
 import useRaf from "@rooks/use-raf";
 import {
   MotionValue,
@@ -21,10 +23,10 @@ export function DockApp({ link = "/", children }: DockAppProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { mouseX, active } = useDock();
 
-  const hasCursor = useMemo(
-    () => window.matchMedia("(pointer:fine)").matches,
-    []
-  );
+  const hasCursor = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(pointer:fine)").matches;
+  }, []);
 
   const { size } = useDockHoverAnimation(mouseX, ref);
 
