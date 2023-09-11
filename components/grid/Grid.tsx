@@ -1,8 +1,8 @@
+import { FC, PropsWithChildren } from "react";
+import { GridTile } from "@/components/grid/Tile";
 import { useGridScale } from "@/hooks/use-grid-scale";
 
 import css from "./Grid.module.scss";
-import { GridTile } from "./Tile";
-import { FC, PropsWithChildren } from "react";
 
 const GRID_SIZE = { width: 2400, height: 3000 };
 const GRID_TILES = [...Array(810).keys()];
