@@ -8,21 +8,15 @@ type DockContextState = {
   active: string;
 };
 
-const Context = createContext<DockContextState | null>(null);
+export const DockContext = createContext<DockContextState | null>(null);
 
 export const DockProvider: FC<PropsWithChildren> = ({ children }) => {
   const mouseX = useMotionValue<number | null>(null);
   const active = usePathname();
 
   return (
-    <Context.Provider value={{ mouseX, active }}>{children}</Context.Provider>
+    <DockContext.Provider value={{ mouseX, active }}>
+      {children}
+    </DockContext.Provider>
   );
-};
-
-export const useDock = () => {
-  const context = useContext(Context);
-
-  if (!context) throw Error("Need Dock wrapper");
-
-  return context;
 };

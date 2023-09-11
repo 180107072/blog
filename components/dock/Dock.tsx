@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 
 import css from "./Dock.module.scss";
-import { useDock } from "./DockProvider";
+import { useDock } from "@/hooks/use-dock";
 
 export const Dock: FC<PropsWithChildren> = ({ children }) => {
   const { mouseX } = useDock();
