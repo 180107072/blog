@@ -1,0 +1,8 @@
+.customTileContainer {
+  font-size: 20;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 10px 10px 0px var(--app-color-grid-line);
+  transform: translate(-10px, -10px);
+  border-radius: 10px;
+}

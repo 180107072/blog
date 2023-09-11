@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2015",
+    "downlevelIteration": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -17,6 +18,9 @@
     "plugins": [
       {
         "name": "next"
+      },
+      {
+        "name": "typescript-plugin-css-modules"
       }
     ],
     "baseUrl": ".",
@@ -29,6 +33,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/**/*.tsx",
+    "**/**/**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
   ],

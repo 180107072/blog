@@ -1,0 +1,12 @@
+.tileContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 80px;
+  height: 80px;
+  pointer-events: all;
+}
+
+.tile {
+  border: 0.5px solid var(--app-color-grid-line);
+}

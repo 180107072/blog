@@ -4,7 +4,7 @@ function average(a: number, b: number) {
   return (a * 1 + b * 1) / 2;
 }
 
-export const useGridScale = (width = 0, height = 0) => {
+export const useGridScale = ({ width = 0, height = 0 }) => {
   const [scale, setScale] = useState(0);
 
   useEffect(() => {
@@ -16,6 +16,8 @@ export const useGridScale = (width = 0, height = 0) => {
         )
       );
     }
+
+    handleResize();
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

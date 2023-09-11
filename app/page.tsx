@@ -1,22 +1,19 @@
 "use client";
 
-import { allPosts } from "@/.contentlayer/generated";
-import { useTheme } from "next-themes";
-import Link from "next/link";
+import { CustomTile } from "@/components/grid/CustomTile";
+import { Grid } from "@/components/grid/Grid";
+import Image from "next/image";
 
 export default function Home() {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
   return (
-    <div className={`prose ${isDark ? "bg-slate-400" : "bg-slate-700"}`}>
-      {allPosts.map((post) => (
-        <article key={post._id}>
-          <Link href={post.slug}>
-            <h2>{post.title}</h2>
-          </Link>
-          {post.description && <p>{post.description}</p>}
-        </article>
-      ))}
-    </div>
+    <Grid>
+      <CustomTile position={{ row: "15 / span 5", column: "20 / 14" }}>
+        <Image
+          src="https://picsum.photos/1000/1000"
+          fill
+          alt="Picture of the author"
+        />
+      </CustomTile>
+    </Grid>
   );
 }

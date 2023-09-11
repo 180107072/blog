@@ -1,0 +1,35 @@
+.gridLayout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0px auto;
+  overflow: hidden;
+  height: 100vh;
+  background: var(--app-color-dark);
+}
+
+.gridContainer {
+  display: grid;
+  padding: 5;
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, 1fr);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  will-change: transform;
+  background: var(--app-color-dark);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gridContainer::before {
+  box-shadow: inset 10px 0px 500px 200px var(--app-color-dark);
+  border: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-clip: content-box;
+  content: "";
+}

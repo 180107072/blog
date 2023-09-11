@@ -1,46 +1,62 @@
 "use client";
 
-import { useTheme } from "next-themes";
+import { useTheme } from "@/hooks/use-theme";
+import {
+  createPseudoElement,
+  darkTransition,
+  lightTransition,
+} from "@/utils/view-api-theme-transition";
+import { MouseEvent } from "react";
+
+const isAppearanceTransition = () => {
+  // @ts-expect-error: Transition API
+  return document.startViewTransition;
+};
 
 export function ModeToggle() {
-  const { setTheme, theme } = useTheme();
+  const [theme, setTheme] = useTheme();
+
+  const isDark = theme === "dark";
+
+  const startTransition = (event: MouseEvent) => {
+    if (!isAppearanceTransition()) return setTheme(isDark ? "light" : "dark");
+    createPseudoElement(theme, isDark ? darkTransition : lightTransition);
+    const x = event.clientX;
+    const y = event.clientY;
+    const endRadius = Math.hypot(
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y)
+    );
+
+    // @ts-expect-error: Transition API
+    const transition = document.startViewTransition(() => {
+      setTheme(isDark ? "light" : "dark");
+    });
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ];
+      document.documentElement.animate(
+        {
+          clipPath: isDark ? clipPath : [...clipPath].reverse(),
+        },
+        {
+          duration: 500,
+          easing: "ease-in",
+          pseudoElement: isDark
+            ? "::view-transition-new(root)"
+            : "::view-transition-old(root)",
+        }
+      );
+    });
+  };
 
   return (
     <button
-      onClick={(event) => {
-        const x = event.clientX;
-        const y = event.clientY;
-        const endRadius = Math.hypot(
-          Math.max(x, innerWidth - x),
-          Math.max(y, innerHeight - y)
-        );
-
-        // @ts-expect-error: Transition API
-        const transition = document.startViewTransition(() => {
-          setTheme(theme === "light" ? "dark" : "light");
-        });
-
-        transition.ready.then(() => {
-          const clipPath = [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${endRadius}px at ${x}px ${y}px)`,
-          ];
-          document.documentElement.animate(
-            {
-              clipPath: theme === "dark" ? clipPath : [...clipPath].reverse(),
-            },
-            {
-              duration: 500,
-              easing: "ease-in",
-              pseudoElement:
-                theme === "dark"
-                  ? "::view-transition-new(root)"
-                  : "::view-transition-old(root)",
-            }
-          );
-        });
-      }}
-      className="border rounded-md w-6 h-6 flex items-center justify-center"
+      onClick={startTransition}
+      className="border rounded-md items-center justify-center absolute right-0 top-0 p-2 m-5 z-50 bg-slate-100"
     >
       <span className="sr-only">Toggle mode</span>
       {theme !== "dark" ? (
