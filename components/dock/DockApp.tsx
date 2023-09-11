@@ -6,8 +6,8 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { title } from "process";
-import { PropsWithChildren, RefObject, useRef } from "react";
+import clsx from "clsx";
+import { PropsWithChildren, RefObject, useMemo, useRef } from "react";
 import Link from "next/link";
 import { useDock } from "./DockProvider";
 
@@ -19,23 +19,31 @@ type DockAppProps = {
 
 export function DockApp({ link = "/", children }: DockAppProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const mouseX = useDock();
+  const { mouseX, active } = useDock();
+
+  const hasCursor = useMemo(
+    () => window.matchMedia("(pointer:fine)").matches,
+    []
+  );
 
   const { size } = useDockHoverAnimation(mouseX, ref);
 
   return (
-    <Link
-      href={link}
-      className={css.dockItemButton}
-      aria-label={`Launch ${title}`}
-    >
+    <Link href={link} className={css.dockItemButton}>
       <motion.div
         ref={ref}
-        className={css.dockItemContainer}
-        style={{
-          width: size,
-          height: size,
-        }}
+        className={clsx(active === link && css.active, css.dockItemContainer)}
+        style={
+          hasCursor
+            ? {
+                width: size,
+                height: size,
+              }
+            : {
+                width: "2.9rem",
+                height: "2.9rem",
+              }
+        }
       >
         {children}
       </motion.div>

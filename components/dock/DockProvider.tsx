@@ -1,12 +1,22 @@
 import { MotionValue, useMotionValue } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 import { FC, PropsWithChildren, createContext, useContext } from "react";
 
-const Context = createContext<MotionValue<number | null> | null>(null);
+type DockContextState = {
+  mouseX: MotionValue<number | null>;
+  active: string;
+};
+
+const Context = createContext<DockContextState | null>(null);
 
 export const DockProvider: FC<PropsWithChildren> = ({ children }) => {
   const mouseX = useMotionValue<number | null>(null);
+  const active = usePathname();
 
-  return <Context.Provider value={mouseX}>{children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ mouseX, active }}>{children}</Context.Provider>
+  );
 };
 
 export const useDock = () => {

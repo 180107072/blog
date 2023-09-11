@@ -13,12 +13,6 @@
   justify-content: flex-end;
   position: relative;
 
-  * > svg {
-    height: 100%;
-    width: 100%;
-    color: hsla(var(--app-color-light-hsl), 0.6);
-  }
-
   & > span {
     display: flex;
     place-items: center;
@@ -67,6 +61,20 @@
   border: 1px solid hsla(var(--app-color-light-hsl), 0.1);
   border-radius: 100%;
   padding: 20%;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    color: hsla(var(--app-color-light-hsl), 0.6);
+  }
+
+  &.active {
+    background: hsla(var(--app-color-light-hsl), 0.8);
+    border: 1px solid hsla(var(--app-color-dark-hsl), 0.1);
+    svg {
+      color: hsla(var(--app-color-dark-hsl), 1) !important;
+    }
+  }
 }
 
 .dot {

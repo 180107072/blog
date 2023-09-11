@@ -1,11 +1,10 @@
 import { FC, PropsWithChildren } from "react";
-import { useMotionValue } from "framer-motion";
 
 import css from "./Dock.module.scss";
-import { DockProvider, useDock } from "./DockProvider";
+import { useDock } from "./DockProvider";
 
 export const Dock: FC<PropsWithChildren> = ({ children }) => {
-  const mouseX = useDock();
+  const { mouseX } = useDock();
 
   return (
     <section className={css.dockContainer}>
