@@ -11,6 +11,7 @@ import { DockProvider } from "@/components/dock/DockProvider";
 import { HomeIcon } from "@/components/svg/home";
 import { PortfolioIcon } from "@/components/svg/portfolio";
 import { ATSymbol } from "@/components/svg/at-symbol";
+import { LightBulb } from "@/components/svg/light-bulb";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,8 +31,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <DockApp link="/">
               <HomeIcon />
             </DockApp>
-            <DockApp link="/posts">
+            <DockApp link="/works">
               <PortfolioIcon />
+            </DockApp>
+            <DockApp link="/posts">
+              <LightBulb />
             </DockApp>
             <DockApp link="/about">
               <ATSymbol />

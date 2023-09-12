@@ -1,0 +1,61 @@
+.allPostsContainer {
+  padding: 10px;
+}
+
+.articleContainer {
+  padding: 10px;
+  border-radius: 0.55rem;
+  color: var(--app-color-light);
+  max-width: 1200px;
+  margin: 10px;
+  overflow: hidden;
+  word-break: keep-all;
+  display: flex;
+  align-items: flex-end;
+  font-size: 0.85rem;
+  gap: 20px;
+}
+
+.articleTitle {
+  text-decoration: underline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &:hover {
+    color: hsla(var(--app-color-light-hsl), 0.5);
+  }
+}
+
+.articleDescription {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: hsla(var(--app-color-light-hsl), 0.5);
+}
+
+@media (max-width: 1000px) {
+  .articleDescription {
+    display: none;
+  }
+
+  .articleContainer {
+    font-size: 0.55rem;
+  }
+}
+
+.articleDate {
+  float: right;
+
+  color: hsla(var(--app-color-light-hsl), 0.5);
+}
+
+.divider {
+  flex: 1;
+  flex-grow: 1;
+  background-color: aliceblue;
+  height: 1px;
+  margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: hsla(var(--app-color-light-hsl), 0.5);
+}

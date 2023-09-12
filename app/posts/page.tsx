@@ -1,15 +1,37 @@
+"use client";
+
 import { allPosts } from "@/.contentlayer/generated";
+import { RandomReveal } from "@/components/random-reveal/RandomReveal";
 import Link from "next/link";
+
+import css from "./page.module.scss";
+import { motion } from "framer-motion";
 
 export default function Posts() {
   return (
-    <div className="prose dark:prose-invert">
+    <div className={css.allPostsContainer}>
       {allPosts.map((post) => (
-        <article key={post._id}>
-          <Link href={post.slug}>
-            <h2>{post.title}</h2>
+        <article key={post._id} className={css.articleContainer}>
+          <Link
+            href={post.slug}
+            className={css.articleTitle}
+            suppressHydrationWarning
+          >
+            {post.title}
           </Link>
-          {post.description && <p>{post.description}</p>}
+          <motion.span
+            layout
+            className={css.articleDescription}
+            suppressHydrationWarning
+          >
+            {post.description}
+          </motion.span>
+
+          <motion.span layout className={css.divider} />
+
+          <span className={css.articleDate}>
+            {new Date(post.date).getFullYear()}
+          </span>
         </article>
       ))}
     </div>
