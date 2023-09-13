@@ -1,4 +1,4 @@
-# Next.js + Contentlayer
+# Next.js + Contentlayer (work in progress)
 
 https://sagi.vercel.app/
 This is the main code base for blog.
