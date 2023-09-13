@@ -9,6 +9,10 @@ export default function Posts() {
       {allWorks.map((post) => (
         <article key={post._id}>
           <Mdx code={post.body.code} />
+          <span className={css.articleDescription}>
+            <h1>{post.title}</h1>
+            <p>{post.description}</p>
+          </span>
         </article>
       ))}
     </div>

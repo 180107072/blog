@@ -69,10 +69,10 @@
   }
 
   &.active {
-    background: hsla(var(--app-color-dark-hsl), 0.5);
+    background: var(--app-color-primary);
     border: 1px solid hsla(var(--app-color-dark-hsl), 0.1);
     svg {
-      color: hsla(var(--app-color-light-hsl), 1) !important;
+      color: var(--app-color-primary-contrast);
     }
   }
 }

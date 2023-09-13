@@ -6,7 +6,7 @@
   z-index: 9900;
 
   width: 100%;
-  height: 4.3rem;
+  height: 4.4rem;
 
   padding: 0.4rem;
 
@@ -16,6 +16,8 @@
 
 .dockElement {
   background-color: hsla(var(--app-color-light-hsl), 1);
+
+  border: 1px solid hsla(var(--app-color-dark-hsl), 0.3);
 
   box-shadow: inset 0 0 0 0.2px hsla(var(--app-color-light-100-hsl), 0.4),
     0 0 0 0.2px hsla(var(--app-color-grey-900-hsl), 0.7),
