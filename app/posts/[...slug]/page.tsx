@@ -5,7 +5,6 @@ import { Metadata } from "next";
 import { Mdx } from "@/components/mdx/MDXComponents";
 
 import css from "./page.module.scss";
-import { useEffect, useRef } from "react";
 
 interface PostProps {
   params: {

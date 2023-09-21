@@ -2,10 +2,10 @@ import { FC, PropsWithChildren } from "react";
 import { GridTile } from "@/components/grid/Tile";
 import { useGridScale } from "@/hooks/use-grid-scale";
 
-import css from "./Grid.module.scss";
+import { GRID_SIZE, GRID_TILES } from "@/config/grid";
 
-const GRID_SIZE = { width: 2400, height: 3000 };
-const GRID_TILES = [...Array(810).keys()];
+import css from "./Grid.module.scss";
+import { getGridTranslation } from "@/utils/get-grid-translation";
 
 export const Grid: FC<PropsWithChildren> = ({ children }) => {
   const scale = useGridScale(GRID_SIZE);
@@ -14,9 +14,7 @@ export const Grid: FC<PropsWithChildren> = ({ children }) => {
     <div className={css.gridLayout}>
       <div
         className={css.gridContainer}
-        style={{
-          transform: `translate(-50%, -50%) skewX(-50deg) skewY(15deg) scaleX(2) scale(${scale}) translateZ(0)`,
-        }}
+        style={{ transform: getGridTranslation(scale) }}
       >
         {children}
         {GRID_TILES.map((tile) => (

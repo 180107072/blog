@@ -1,10 +1,11 @@
+import { GRID_TILE_COUNT } from "@/config/grid";
 import css from "./Tile.module.scss";
 
 export const GridTile = () => {
   return (
     <div className={css.tileContainer}>
-      {[1, 2, 3, 4].map((i) => (
-        <div key={i} className={css.tile} />
+      {GRID_TILE_COUNT.map((i) => (
+        <span key={i} className={css.tile} />
       ))}
     </div>
   );

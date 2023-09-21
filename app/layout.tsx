@@ -1,7 +1,6 @@
 "use client";
 
 import "@/scss/main.scss";
-import "./globals.css";
 import { Inter } from "next/font/google";
 import { Analytics } from "@/components/analytics";
 import { ModeToggle } from "@/components/mode-toggle";
@@ -10,8 +9,9 @@ import { DockApp } from "@/components/dock/DockApp";
 import { DockProvider } from "@/components/dock/DockProvider";
 import { HomeIcon } from "@/components/svg/home";
 import { PortfolioIcon } from "@/components/svg/portfolio";
-import { ATSymbol } from "@/components/svg/at-symbol";
 import { LightBulb } from "@/components/svg/light-bulb";
+import { GithubIcon } from "@/components/svg/github";
+import { MailIcon } from "@/components/svg/mail";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,8 +37,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <DockApp link="/posts">
               <LightBulb />
             </DockApp>
-            <DockApp link="/about">
-              <ATSymbol />
+            <DockApp
+              link="https://github.com/180107072"
+              behavior="a"
+              target="_blank"
+            >
+              <GithubIcon />
+            </DockApp>
+            <DockApp link="mailto:iokyufokyu@gmail.com" behavior="a">
+              <MailIcon />
             </DockApp>
           </Dock>
         </DockProvider>

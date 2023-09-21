@@ -1,12 +1,21 @@
+.mdxContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 .navigation {
   position: fixed;
   left: 0;
   padding: 2.5rem;
+
   display: flex;
   flex-direction: column;
+
   gap: 1rem;
   cursor: pointer;
   font-size: 0.75rem;
+
   & > p {
     &:hover {
       color: hsla(var(--app-color-light-hsl), 0.5);

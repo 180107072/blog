@@ -16,13 +16,18 @@
 
 .postLink {
   color: var(--app-color-light);
+
   background-color: hsla(var(--app-color-primary-hsl), 0.3);
+
   width: fit-content;
+
   border-radius: 0.25rem;
   margin-top: 1rem;
+
   padding: 0.25rem;
   padding-left: 1rem;
   padding-right: 1rem;
+
   &:hover {
     background-color: hsla(var(--app-color-primary-hsl), 0.2);
   }

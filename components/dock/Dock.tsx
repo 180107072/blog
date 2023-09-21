@@ -5,6 +5,7 @@ import { useDock } from "@/hooks/use-dock";
 
 export const Dock: FC<PropsWithChildren> = ({ children }) => {
   const { mouseX } = useDock();
+
   const hasCursor = useMemo(() => {
     if (typeof window === "undefined") return false;
     return window.matchMedia("(pointer:fine)").matches;

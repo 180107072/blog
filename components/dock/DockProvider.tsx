@@ -1,7 +1,6 @@
 import { MotionValue, useMotionValue } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
-import { FC, PropsWithChildren, createContext, useContext } from "react";
+import { FC, PropsWithChildren, createContext } from "react";
 
 type DockContextState = {
   mouseX: MotionValue<number | null>;
