@@ -16,12 +16,12 @@
 }
 
 .articleTitle {
-  text-decoration: underline;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   &:hover {
     color: hsla(var(--app-color-light-hsl), 0.5);
+    text-decoration: underline;
   }
 }
 
@@ -38,7 +38,7 @@
   }
 
   .articleContainer {
-    font-size: 0.55rem;
+    font-size: 0.7rem;
   }
 }
 

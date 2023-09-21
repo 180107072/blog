@@ -2,16 +2,22 @@ import { allWorks } from "@/.contentlayer/generated";
 import { Mdx } from "@/components/mdx/MDXComponents";
 
 import css from "./page.module.scss";
+import Link from "next/link";
 
-export default function Posts() {
+export default function Works() {
   return (
     <div className={css.pageWrapper}>
-      {allWorks.map((post) => (
-        <article key={post._id}>
-          <Mdx code={post.body.code} />
+      {allWorks.map((work) => (
+        <article key={work._id}>
+          <Mdx code={work.body.code} />
           <span className={css.articleDescription}>
-            <h1>{post.title}</h1>
-            <p>{post.description}</p>
+            <h1>{work.title}</h1>
+            <p>{work.description}</p>
+            {work.post ? (
+              <Link href={`/posts/${work.post}`} className={css.postLink}>
+                Read post
+              </Link>
+            ) : null}
           </span>
         </article>
       ))}

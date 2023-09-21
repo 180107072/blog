@@ -56,9 +56,8 @@ export function ModeToggle() {
   return (
     <button
       onClick={startTransition}
-      className="border rounded-md items-center justify-center absolute right-0 top-0 p-2 m-5 z-50 bg-slate-100"
+      className="border rounded-md items-center justify-center fixed right-0 top-0 p-2 m-5 z-50 bg-slate-100 border-black"
     >
-      <span className="sr-only">Toggle mode</span>
       {theme !== "dark" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"

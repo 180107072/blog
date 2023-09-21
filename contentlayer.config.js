@@ -64,6 +64,9 @@ export const Work = defineDocumentType(() => ({
       type: "date",
       required: true,
     },
+    post: {
+      type: "string",
+    },
   },
   computedFields,
 }));
