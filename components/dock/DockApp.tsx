@@ -17,11 +17,6 @@ export function DockApp({ link = "/", children }: DockAppProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { mouseX, active } = useDock();
 
-  const hasCursor = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(pointer:fine)").matches;
-  }, []);
-
   const { size } = useDockHoverAnimation(mouseX, ref);
 
   return (
@@ -29,17 +24,10 @@ export function DockApp({ link = "/", children }: DockAppProps) {
       <motion.div
         ref={ref}
         className={clsx(active === link && css.active, css.dockItemContainer)}
-        style={
-          hasCursor
-            ? {
-                width: size,
-                height: size,
-              }
-            : {
-                width: "2.9rem",
-                height: "2.9rem",
-              }
-        }
+        style={{
+          width: size,
+          height: size,
+        }}
       >
         {children}
       </motion.div>
