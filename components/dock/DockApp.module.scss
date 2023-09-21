@@ -4,8 +4,6 @@
 
   cursor: pointer;
 
-  transition: all 200ms ease-in;
-
   transform-origin: bottom;
 
   display: flex;
@@ -57,10 +55,11 @@
 }
 
 .dockItemContainer {
+  transition: all 20ms ease-in;
   background: var(--app-color-dark);
   border: 1px solid hsla(var(--app-color-light-hsl), 0.1);
   border-radius: 100%;
-  padding: 20%;
+  padding: 0.5rem;
 
   svg {
     height: 100%;
