@@ -12,7 +12,9 @@ export const DockContext = createContext<DockContextState | null>(null);
 
 export const DockProvider: FC<PropsWithChildren> = ({ children }) => {
   const mouseX = useMotionValue<number | null>(null);
-  const active = usePathname();
+  const path = usePathname();
+
+  const active = `/${path.split("/")[1]}`;
 
   return (
     <DockContext.Provider value={{ mouseX, active }}>

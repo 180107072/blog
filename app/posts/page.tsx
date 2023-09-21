@@ -1,7 +1,6 @@
 "use client";
 
 import { allPosts } from "@/.contentlayer/generated";
-import { RandomReveal } from "@/components/random-reveal/RandomReveal";
 import Link from "next/link";
 
 import css from "./page.module.scss";

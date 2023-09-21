@@ -22,9 +22,9 @@ const distanceInput = [
 const widthOutput = [
   baseWidth,
   baseWidth * 1.1,
-  baseWidth * 1.414,
-  baseWidth * 2,
-  baseWidth * 1.414,
+  baseWidth * 1.214,
+  baseWidth * 1.8,
+  baseWidth * 1.214,
   baseWidth * 1.1,
   baseWidth,
 ];
@@ -38,12 +38,12 @@ export const useDockHoverAnimation = (
   const sizePX: MotionValue<number> = useSpring(
     useTransform(distance, distanceInput, widthOutput),
     {
-      stiffness: 1300,
+      stiffness: 800,
       damping: 82,
     }
   );
 
-  const size = useTransform(sizePX, (size) => `${size / 20}rem`);
+  const size = useTransform(sizePX, (size) => `${size / 22}rem`);
 
   useRaf(() => {
     const el = ref.current;

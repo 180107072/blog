@@ -2,9 +2,10 @@ import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
 import { Metadata } from "next";
-import { Mdx } from "@/components/mdx-components";
+import { Mdx } from "@/components/mdx/MDXComponents";
 
 import css from "./page.module.scss";
+import { useEffect, useRef } from "react";
 
 interface PostProps {
   params: {
@@ -53,10 +54,16 @@ export default async function PostPage({ params }: PostProps) {
 
   return (
     <article className={css.articleContainer}>
-      <h1>{post.title}</h1>
-      <p className={css.articleDescription}>{post.description}</p>
-      <hr />
-      <Mdx code={post.body.code} />
+      <div>
+        <b className="text-sm">{post.title}</b>
+        <p className={css.articleDescription}>{post.description}</p>
+
+        <p className="text-xs text-slate-500">
+          {new Date(post.date).toDateString()}
+        </p>
+      </div>
+
+      <Mdx navigation code={post.body.code} />
     </article>
   );
 }
