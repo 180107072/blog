@@ -1,5 +1,5 @@
 import { allWorks } from "@/.contentlayer/generated";
-import { Mdx } from "@/components/mdx-components";
+import { Mdx } from "@/components/mdx/MDXComponents";
 
 import css from "./page.module.scss";
 
