@@ -9,4 +9,14 @@
 
 .tile {
   border: 0.5px solid var(--app-color-grid-line);
+
+  transition: all 0.5s ease 1s;
+
+  &:hover {
+    background-color: var(--app-color-dark);
+    border-radius: 0.25rem;
+    transition: all 0s ease 0s;
+    box-shadow: 5px 5px 0px var(--app-color-grid-line);
+    transform: translate(-5px, -5px);
+  }
 }

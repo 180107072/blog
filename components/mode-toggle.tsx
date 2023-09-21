@@ -20,6 +20,7 @@ export function ModeToggle() {
 
   const startTransition = (event: MouseEvent) => {
     if (!isAppearanceTransition()) return setTheme(isDark ? "light" : "dark");
+    document.body.classList.add("notransition");
     createPseudoElement(theme, isDark ? darkTransition : lightTransition);
     const x = event.clientX;
     const y = event.clientY;
@@ -38,18 +39,22 @@ export function ModeToggle() {
         `circle(0px at ${x}px ${y}px)`,
         `circle(${endRadius}px at ${x}px ${y}px)`,
       ];
-      document.documentElement.animate(
-        {
-          clipPath: isDark ? clipPath : [...clipPath].reverse(),
-        },
-        {
-          duration: 500,
-          easing: "ease-in",
-          pseudoElement: isDark
-            ? "::view-transition-new(root)"
-            : "::view-transition-old(root)",
-        }
-      );
+      document.documentElement
+        .animate(
+          {
+            clipPath: isDark ? clipPath : [...clipPath].reverse(),
+          },
+          {
+            duration: 500,
+            easing: "ease-in",
+            pseudoElement: isDark
+              ? "::view-transition-new(root)"
+              : "::view-transition-old(root)",
+          }
+        )
+        .finished.then(() => {
+          document.body.classList.remove("notransition");
+        });
     });
   };
 

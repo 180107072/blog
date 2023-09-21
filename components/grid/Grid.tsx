@@ -7,6 +7,8 @@ import { GRID_SIZE, GRID_TILES } from "@/config/grid";
 import css from "./Grid.module.scss";
 import { getGridTranslation } from "@/utils/get-grid-translation";
 
+const tiles = GRID_TILES.map((tile) => <GridTile key={tile} />);
+
 export const Grid: FC<PropsWithChildren> = ({ children }) => {
   const scale = useGridScale(GRID_SIZE);
 
@@ -17,9 +19,7 @@ export const Grid: FC<PropsWithChildren> = ({ children }) => {
         style={{ transform: getGridTranslation(scale) }}
       >
         {children}
-        {GRID_TILES.map((tile) => (
-          <GridTile key={tile} />
-        ))}
+        {tiles}
       </div>
     </div>
   );

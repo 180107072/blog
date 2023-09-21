@@ -49,6 +49,9 @@ export function DockApp({
     >
       <motion.div
         ref={ref}
+        whileTap={{
+          scale: 0.8,
+        }}
         className={clsx(active === link && css.active, css.dockItemContainer)}
         style={{ width: size, height: size }}
       >

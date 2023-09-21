@@ -55,11 +55,12 @@
 }
 
 .dockItemContainer {
-  transition: all 20ms ease-in;
+  transition: background-color 0.3s ease-in;
   background: var(--app-color-dark);
   border: 1px solid hsla(var(--app-color-light-hsl), 0.1);
   border-radius: 100%;
   padding: 0.6rem;
+  transform-origin: bottom center;
 
   svg {
     height: 100%;
@@ -68,7 +69,7 @@
   }
 
   &.active {
-    background: var(--app-color-primary);
+    background-color: var(--app-color-primary);
     border: 1px solid hsla(var(--app-color-dark-hsl), 0.1);
     svg {
       color: var(--app-color-primary-contrast);
