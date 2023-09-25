@@ -10,9 +10,12 @@ export default function Works() {
       {allWorks.map((work) => (
         <article key={work._id}>
           <Mdx code={work.body.code} />
+
           <span className={css.articleDescription}>
             <h1>{work.title}</h1>
+
             <p>{work.description}</p>
+
             {work.post ? (
               <Link href={`/posts/${work.post}`} className={css.postLink}>
                 Read post

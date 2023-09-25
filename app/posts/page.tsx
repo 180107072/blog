@@ -18,15 +18,9 @@ export default function Posts() {
           >
             {post.title}
           </Link>
-          <motion.span
-            layout
-            className={css.articleDescription}
-            suppressHydrationWarning
-          >
-            {post.description}
-          </motion.span>
+          <span className={css.articleDescription}>{post.description}</span>
 
-          <motion.span layout className={css.divider} />
+          <span className={css.divider} />
 
           <span className={css.articleDate}>
             {new Date(post.date).getFullYear()}

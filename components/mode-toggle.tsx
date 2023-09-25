@@ -19,8 +19,14 @@ export function ModeToggle() {
   const isDark = theme === "dark";
 
   const startTransition = (event: MouseEvent) => {
-    if (!isAppearanceTransition()) return setTheme(isDark ? "light" : "dark");
     document.body.classList.add("notransition");
+    if (!isAppearanceTransition()) {
+      setTheme(isDark ? "light" : "dark");
+
+      return setTimeout(() => {
+        document.body.classList.remove("notransition");
+      }, 0);
+    }
     createPseudoElement(theme, isDark ? darkTransition : lightTransition);
     const x = event.clientX;
     const y = event.clientY;
