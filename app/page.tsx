@@ -7,7 +7,15 @@ import { Grid } from "@/components/grid/Grid";
 export default function Home() {
   return (
     <Grid>
-      <CustomTile position={{ row: "15 / span 5", column: "8 / 14" }}>
+      <CustomTile position={{ row: "15 / span 4", column: "12 / 9" }}>
+        <Image
+          src="https://picsum.photos/1000/1000"
+          fill
+          className="object-cover"
+          alt=""
+        />
+      </CustomTile>
+      <CustomTile position={{ row: "20 / span 3", column: "14 / 18" }}>
         <Image
           src="https://picsum.photos/1000/1000"
           fill
@@ -16,7 +24,7 @@ export default function Home() {
         />
       </CustomTile>
 
-      <CustomTile position={{ row: "10 / span 2", column: "8 / 14" }}>
+      <CustomTile position={{ row: "10 / span 2", column: "10 / 14" }}>
         <Image
           src="https://picsum.photos/1000/1000"
           fill
@@ -25,7 +33,16 @@ export default function Home() {
         />
       </CustomTile>
 
-      <CustomTile position={{ row: "10 / span 3", column: "18 / 22" }}>
+      <CustomTile position={{ row: "11 / span 2", column: "18 / 22" }}>
+        <Image
+          src="https://picsum.photos/1000/1000"
+          fill
+          alt=""
+          className="object-cover"
+        />
+      </CustomTile>
+
+      <CustomTile position={{ row: "15 / span 4", column: "20 / 24" }}>
         <Image
           src="https://picsum.photos/1000/1000"
           fill

@@ -1,80 +1,59 @@
-.pageWrapper {
-  width: 100%;
-  display: grid;
-  gap: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+.container {
+  padding: 1rem;
 
-  margin-bottom: 100px;
+  column-count: 4;
 
-  article {
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    height: 700px;
+  column-gap: 10px;
+
+  div {
+    margin: 0;
+
+    break-inside: avoid;
+
+    margin-bottom: 1rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.5rem;
   }
-}
 
-.postLink {
-  color: var(--app-color-dark);
-
-  background-color: hsla(var(--app-color-light-hsl), 1);
-
-  border-radius: 0.4rem;
-  margin-top: 1rem;
-
-  padding: 0.75rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  text-align: center;
-
-  &:hover {
-    background-color: hsla(var(--app-color-light-hsl), 0.9);
+  div > img {
+    border-radius: 1rem;
   }
-}
 
-.pageWrapper:hover ~ .articleDescription {
-  opacity: 0;
-}
+  div a {
+    text-decoration: none;
+  }
 
-.articleDescription {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 0.75rem;
-  background-color: hsla(var(--app-color-dark-hsl), 0.8);
+  span {
+    background-color: hsla(var(--app-color-light-hsl), 0.1);
 
-  display: flex;
-
-  flex-direction: column;
-
-  backdrop-filter: blur(10px);
-
-  border: 1px solid hsla(var(--app-color-light-hsl), 0.1);
-
-  & > h1 {
     color: var(--app-color-light);
 
-    margin-bottom: 0.5rem;
+    border-radius: 1rem;
 
-    font-size: 1rem;
+    justify-self: start;
+
+    width: 100%;
+
+    padding: 0.5rem;
   }
 
-  & > p {
-    color: hsla(var(--app-color-light-hsl), 0.6);
+  img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
   }
 }
 
 @media (max-width: 720px) {
-  .pageWrapper {
-    width: 100%;
-    display: grid;
-    gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    article {
-      width: auto;
-      height: 620px;
-    }
+  .container {
+    column-count: 2;
+
+    column-gap: 10px;
+
+    font-size: 0.75rem;
   }
 }

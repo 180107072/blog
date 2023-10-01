@@ -2,6 +2,11 @@
   padding: 10px;
   width: fit-content;
   position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .articleContainer {
@@ -15,6 +20,7 @@
   margin: 10px;
 
   word-break: keep-all;
+
   display: flex;
   align-items: flex-end;
   font-size: 0.85rem;
@@ -42,6 +48,8 @@
 
   font-size: 0.75rem;
   color: hsla(var(--app-color-light-hsl), 0.5);
+
+  display: none;
 }
 
 @media (max-width: 1000px) {

@@ -1,10 +1,7 @@
-"use client";
-
 import { allPosts } from "@/.contentlayer/generated";
 import Link from "next/link";
 
 import css from "./page.module.scss";
-import { motion } from "framer-motion";
 
 export default function Posts() {
   return (

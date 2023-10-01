@@ -1,5 +1,3 @@
-"use client";
-
 import "@/scss/main.scss";
 import { Inter } from "next/font/google";
 import { Analytics } from "@/components/analytics";
@@ -12,6 +10,7 @@ import { PortfolioIcon } from "@/components/svg/portfolio";
 import { LightBulb } from "@/components/svg/light-bulb";
 import { GithubIcon } from "@/components/svg/github";
 import { MailIcon } from "@/components/svg/mail";
+import { Photos } from "@/components/svg/photos";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +21,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`antialiased ${inter.className}`}>
+      <body className={`antialiased pb-24 ${inter.className}`}>
         <ModeToggle />
         <main>{children}</main>
         <Analytics />
@@ -33,6 +32,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </DockApp>
             <DockApp link="/works">
               <PortfolioIcon />
+            </DockApp>
+            <DockApp link="/photos">
+              <Photos />
             </DockApp>
             <DockApp link="/posts">
               <LightBulb />

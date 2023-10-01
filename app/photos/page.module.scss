@@ -1,0 +1,80 @@
+.pageWrapper {
+  width: 100%;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+
+  margin-bottom: 100px;
+
+  article {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 700px;
+  }
+}
+
+.postLink {
+  color: var(--app-color-dark);
+
+  background-color: hsla(var(--app-color-light-hsl), 1);
+
+  border-radius: 0.4rem;
+  margin-top: 1rem;
+
+  padding: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  text-align: center;
+
+  &:hover {
+    background-color: hsla(var(--app-color-light-hsl), 0.9);
+  }
+}
+
+.pageWrapper:hover ~ .articleDescription {
+  opacity: 0;
+}
+
+.articleDescription {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  background-color: hsla(var(--app-color-dark-hsl), 0.8);
+
+  display: flex;
+
+  flex-direction: column;
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid hsla(var(--app-color-light-hsl), 0.1);
+
+  & > h1 {
+    color: var(--app-color-light);
+
+    margin-bottom: 0.5rem;
+
+    font-size: 1rem;
+  }
+
+  & > p {
+    color: hsla(var(--app-color-light-hsl), 0.6);
+  }
+}
+
+@media (max-width: 720px) {
+  .pageWrapper {
+    width: 100%;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    article {
+      width: auto;
+      height: 620px;
+    }
+  }
+}

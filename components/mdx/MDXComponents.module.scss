@@ -4,6 +4,30 @@
   gap: 1.25rem;
 }
 
+.goback {
+  display: flex;
+  gap: 1rem;
+
+  font-weight: bold;
+
+  align-items: center;
+
+  font-size: 1.25rem;
+
+  color: hsla(var(--app-color-light-hsl), 0.7);
+  svg {
+    width: 1rem;
+    height: 1rem;
+
+
+    stroke-width: 0.24rem;
+  }
+
+  &:hover {
+    color: hsla(var(--app-color-light-hsl), 1);
+  }
+}
+
 .navigation {
   position: fixed;
   left: 0;

@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, PropsWithChildren, useMemo } from "react";
 
 import css from "./Dock.module.scss";

@@ -9,8 +9,8 @@ export const useGridScale = ({ width = 0, height = 0 }) => {
     function handleResize() {
       setScale(
         average(
-          window.screen.availWidth / width,
-          window.screen.availHeight / height
+          window.screen.width / width,
+          window.screen.height / height
         )
       );
     }

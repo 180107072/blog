@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, Suspense } from "react";
 import css from "./layout.module.scss";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {

@@ -6,6 +6,8 @@ import { useCallback, useRef } from "react";
 
 import css from "./MDXComponents.module.scss";
 import { useMDXHeadings } from "@/hooks/use-mdx-headings";
+import Link from "next/link";
+import { ArrowLeft } from "../svg/arrow-left";
 
 const components = {
   Image,
@@ -45,7 +47,17 @@ export function Mdx({ code, navigation = false }: MdxProps) {
   return (
     <div>
       {navigation ? (
-        <div className={css.navigation}>{createNavigationArray()}</div>
+        <div className={css.navigation}>
+          <Link
+            href="/posts"
+            className={css.goback}
+            style={{ marginBottom: 20 }}
+          >
+            <ArrowLeft />
+            / posts
+          </Link>
+          {createNavigationArray()}
+        </div>
       ) : null}
       <div className={css.mdxContainer} ref={ref}>
         <Component components={components} />

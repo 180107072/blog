@@ -1,3 +1,5 @@
+"use client";
+
 import { MotionValue, useMotionValue } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { FC, PropsWithChildren, createContext } from "react";
