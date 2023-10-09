@@ -2,6 +2,7 @@ import {
   FC,
   PropsWithChildren,
   startTransition,
+  useDeferredValue,
   useEffect,
   useId,
   useRef,
@@ -15,7 +16,7 @@ import { GRID_SIZE, GRID_TILES, NUM_OF_TILES } from "@/config/grid";
 import css from "./Grid.module.scss";
 import { getGridTranslation } from "@/utils/get-grid-translation";
 
-const limit = 10;
+const limit = 5;
 
 const Renderer: FC<{
   chunks: JSX.Element[];
@@ -33,6 +34,8 @@ export const Grid: FC<PropsWithChildren> = ({ children }) => {
   const scale = useGridScale(GRID_SIZE);
 
   const [tiles, setTiles] = useState<JSX.Element[]>([]);
+
+  const deferred = useDeferredValue(tiles);
 
   const load = (id: string) => {
     const to = chunk.current * limit;
@@ -55,7 +58,7 @@ export const Grid: FC<PropsWithChildren> = ({ children }) => {
       >
         {children}
         <Renderer onRendered={load} chunks={tiles} />
-        {tiles}
+        {deferred}
       </div>
     </div>
   );
