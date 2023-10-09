@@ -21,7 +21,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`antialiased pb-24 ${inter.className}`}>
+      <body className={`antialiased ${inter.className}`}>
         <ModeToggle />
         <main>{children}</main>
         <Analytics />

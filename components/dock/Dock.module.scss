@@ -15,7 +15,9 @@
 }
 
 .dockElement {
-  background-color: hsla(var(--app-color-light-hsl), 1);
+  background-color: hsla(var(--app-color-light-hsl), 0.1);
+
+  backdrop-filter: blur(40px);
 
   border: 1px solid hsla(var(--app-color-dark-hsl), 0.3);
 

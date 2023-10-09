@@ -1,26 +1,52 @@
+.postLink {
+  color: var(--app-color-dark);
+
+  background-color: hsla(var(--app-color-light-hsl), 1);
+
+  border-radius: 0.5rem;
+
+  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  text-align: center;
+
+  font-size: 0.85rem;
+
+  &:hover {
+    background-color: hsla(var(--app-color-light-hsl), 0.9);
+  }
+}
+
 .container {
   padding: 1rem;
 
-  column-count: 4;
+  column-count: 5;
 
   column-gap: 10px;
 
-  div {
+  .work {
     margin: 0;
 
     break-inside: avoid;
-
-    margin-bottom: 1rem;
 
     display: flex;
 
     flex-direction: column;
 
     gap: 0.5rem;
+    margin-bottom: 10px;
   }
 
-  div > img {
+  img {
     border-radius: 1rem;
+    border: 2px solid hsla(var(--app-color-light-hsl), 0.4);
+  }
+
+  video {
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 2px solid hsla(var(--app-color-light-hsl), 0.4);
   }
 
   div a {
@@ -37,8 +63,6 @@
     justify-self: start;
 
     width: 100%;
-
-    padding: 0.5rem;
   }
 
   img {
