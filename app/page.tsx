@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { CustomTile } from "@/components/grid/CustomTile";
 import { Grid } from "@/components/grid/Grid";
+import css from "./page.module.scss";
 
 export default function Home() {
   return (
@@ -40,6 +41,12 @@ export default function Home() {
           alt=""
           className="object-cover"
         />
+      </CustomTile>
+
+      <CustomTile position={{ row: "14 / span 3", column: "14 / 17" }}>
+        <div className={css.workInProgress}>
+          <span className="text-center">Work in Progress</span>
+        </div>
       </CustomTile>
 
       <CustomTile position={{ row: "15 / span 4", column: "20 / 24" }}>
